@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const signup = (props) => {
 
@@ -44,7 +45,7 @@ const signup = (props) => {
                 </div>
 
                 <hr/>
-                <a href="/login">Already a user? Click to login</a>
+                <Link to="/login">Already a user? Click to login</Link>
             </form>
         </div>
     );

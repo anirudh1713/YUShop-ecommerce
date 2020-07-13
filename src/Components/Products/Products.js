@@ -4,7 +4,15 @@ import './Products.css';
 
 const products = (props) => {
     const productsToShow = props.prData.map(product => {
-        return <Product key={product.id} id={product.id} name={product.name} price={product.price} details={product.details} onAddToCart={props.onAddToCart} />;
+        return <Product key={product.id}
+                        id={product.id}
+                        name={product.name}
+                        price={product.price}
+                        details={product.details}
+                        imgSource={product.imgSource}
+                        onAddToCart={props.onAddToCart}
+                        onBuyNow={props.onBuyNow}
+        />;
     });
 
     return (

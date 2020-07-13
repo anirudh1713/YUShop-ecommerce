@@ -1,13 +1,18 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const product = (props) => {
-    const imgSrc = "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80";
     const id = props.id;
+    const price = props.price;
+    const name = props.name;
+    const image = props.imgSource;
+    const details = props.details;
+
     return (
             <div style={{margin: "10px"}} className="card">
                 <div className="card-image">
                     <figure className="image is-5by4">
-                        <img src={imgSrc} alt="img"/>
+                        <img src={props.imgSource} alt="img"/>
                     </figure>
                 </div>
                 <div className="card-content">
@@ -21,8 +26,8 @@ const product = (props) => {
                 </div>
 
                 <div className="card-footer">
-                    <button style={{margin: "5px"}} className="card-footer-item button is-success">Buy Now</button>
-                    <button style={{margin: "5px"}} className="card-footer-item button is-info" onClick={() => props.onAddToCart(id)}>Add to cart</button>
+                    <Link to={"/checkout"} style={{margin: "5px"}} className="card-footer-item button is-success" onClick={() => props.onBuyNow(id, name, price, image, details)}>Buy Now</Link>
+                    <button style={{margin: "5px"}} className="card-footer-item button is-info" onClick={() => props.onAddToCart(id, price)}>Add to cart</button>
                 </div>
             </div>
     );
