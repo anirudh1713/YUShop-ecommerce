@@ -27,7 +27,7 @@ const product = (props) => {
 
                 <div className="card-footer">
                     <Link to={"/checkout"} style={{margin: "5px"}} className="card-footer-item button is-success" onClick={() => props.onBuyNow(id, name, price, image, details)}>Buy Now</Link>
-                    <button style={{margin: "5px"}} className="card-footer-item button is-info" onClick={() => props.onAddToCart(id, price)}>Add to cart</button>
+                    <button style={{margin: "5px"}} className="card-footer-item button is-info" onClick={() => props.onAddToCart(id, price, name, details, image, props.token, props.userId)}>Add to cart</button>
                 </div>
             </div>
     );

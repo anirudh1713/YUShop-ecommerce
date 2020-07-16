@@ -12,6 +12,9 @@ const products = (props) => {
                         imgSource={product.imgSource}
                         onAddToCart={props.onAddToCart}
                         onBuyNow={props.onBuyNow}
+                        onCartLoading={props.cartLoading}
+                        token={props.token}
+                        userId={props.userId}
         />;
     });
 

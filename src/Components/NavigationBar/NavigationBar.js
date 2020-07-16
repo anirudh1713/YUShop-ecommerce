@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const navigationBar = () => {
+const navigationBar = (props) => {
     const onNavClickHandler = () => {
         const navBurger = document.querySelector(".navbar-burger");
         navBurger.classList.toggle("is-active");
@@ -16,7 +16,7 @@ const navigationBar = () => {
                     <p className="title" style={{color: "white"}}>YUShop</p>
                 </Link>
 
-                <Link onClick={onNavClickHandler} role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                <Link to={""} onClick={onNavClickHandler} role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true" />
                     <span aria-hidden="true" />
                     <span aria-hidden="true" />
@@ -26,11 +26,13 @@ const navigationBar = () => {
             <div className="navbar-menu">
                 <div className="navbar-end">
                     <Link to="/" className="navbar-item">Home</Link>
-                    <Link to="#" className="navbar-item">Customer Services</Link>
                     <Link to="#" className="navbar-item">Sell</Link>
+                    <Link to="/contactus" className="navbar-item">Contact Us</Link>
                     <div className="navbar-item">
                         <div className="buttons">
-                            <Link to="/login" className="button is-primary">Log in</Link>
+                            {props.token ? <Link to="/logout" className="button is-danger">Log out</Link>
+                                : <Link to="/login" className="button is-primary">Log in</Link>
+                            }
                             <Link to="/cart" className="button is-success">Cart</Link>
                         </div>
                     </div>

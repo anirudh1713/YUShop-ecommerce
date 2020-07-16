@@ -1,6 +1,22 @@
-export const ADDED_TO_CART = "ADDED_TO_CART";
+export const FETCH_CART = "FETCH_CART";
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_TO_CART_SUCCESS = "ADD_TO_CART_SUCCESS";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const REMOVE_FROM_CART_SUCCESS = "REMOVE_FROM_CART_SUCCESS";
 
 export const BUY_NOW = "BUY_NOW";
 
 export const CLEAR_ORDER_INFO = "CLEAR_ORDER_INFO";
+
+export const SIGNUP_START = "SIGNUP_START";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAIL = "SIGNUP_FAIL";
+
+export const SIGNIN_START = "SIGNIN_START";
+export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
+export const SIGNIN_FAIL = "SINGIN_FIAL";
+
+export const COMPONENT_MOUT = "COMPONENT_MOUT";
+
+export const LOGOUT = "LOGOUT";

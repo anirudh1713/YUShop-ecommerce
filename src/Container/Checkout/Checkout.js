@@ -15,13 +15,16 @@ const checkout = (props) => {
             </tr>
         );
     }else {
-        const filteredItems = props.products.filter(item => {
-            return props.cartItems.includes(item.id);
+        const cartIds = props.cartItems.map(item => {
+            return item.id;
         });
-
+        const filteredItems = props.products.filter(item => {
+            return cartIds.includes(item.id);
+        });
+        console.log("filterd items in chekcout===", filteredItems);
         checkOutProducts = filteredItems.map(item => {
             return (
-                <tr>
+                <tr key={item.id}>
                     <td><div className="section"><div className="container"><figure className="image is-64x64"><img src={item.imgSource} alt=""/></figure></div></div></td>
                     <td><div className="section"><div className="container">{item.name}</div></div></td>
                     <td><div className="section"><div className="container">${item.price}</div></div></td>
@@ -122,9 +125,9 @@ const checkout = (props) => {
 
 const mapPropsToState = state => {
     return{
-        orderInfo: state.orderInfo,
-        cartItems: state.cart,
-        products: state.productsData
+        orderInfo: state.base.orderInfo,
+        cartItems: state.base.cart,
+        products: state.base.productsData
     };
 };
 

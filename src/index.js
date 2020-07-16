@@ -6,10 +6,21 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from 'redux';
-import reducer from './Store/reducer';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import baseReducer from './Store/reducer';
+import thunk from 'redux-thunk';
+import authReducer from './Store/auth';
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const reducer = combineReducers({
+    base: baseReducer,
+    auth: authReducer
+});
+
+const store = createStore(reducer, composeEnhancers(
+    applyMiddleware(thunk)
+));
 
 const app = (
     <Provider store={store}>
