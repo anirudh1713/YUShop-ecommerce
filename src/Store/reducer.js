@@ -28,7 +28,10 @@ const initialState = {
         message: null
     },
     addToCartLoading: false,
-    onRemove: 0
+    onRemove: 0,
+    checkoutFromCart: false,
+    addedToCart: false,
+    addToCartFail: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -37,16 +40,18 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: action.payload
-            }
+            };
         case actionTypes.ADD_TO_CART:
             return {
                 ...state,
-                addToCartLoading: true
+                addToCartLoading: true,
+                addedToCart: false
             };
         case actionTypes.ADD_TO_CART_SUCCESS:
             return {
                 ...state,
-                addToCartLoading: false
+                addToCartLoading: false,
+                addedToCart: true
             };
         case actionTypes.REMOVE_FROM_CART:
             const newCart = state.cart.filter((item) => {
@@ -77,12 +82,39 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 orderInfo: null
-            }
+            };
         case actionTypes.LOGOUT:
             return {
                 ...state,
                 cart: []
-            }
+            };
+        case actionTypes.CHECKOUT_FROM_CART:
+            return {
+                ...state,
+                checkoutFromCart: true
+            };
+        case actionTypes.FALSE_CHECKOUT_FROM_CART:
+            return {
+                ...state,
+                checkoutFromCart: false
+            };
+        case actionTypes.REMOVE_CART_NOTIFICATION:
+            return{
+                ...state,
+                addedToCart: false,
+                addToCartFail: false
+            };
+        case actionTypes.ADD_TO_CART_FAIL:
+            return{
+                ...state,
+                addToCartFail: true
+            };
+        case actionTypes.SIGNUP_SUCCESS:
+        case actionTypes.SIGNIN_SUCCESS:
+            return {
+                ...state,
+                addToCartFail: false
+            };
         default:
             return state;
     }

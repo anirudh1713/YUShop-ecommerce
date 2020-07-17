@@ -105,10 +105,10 @@ class Signup extends Component {
         }
 
         return (
-            <div style={{width: "50%", margin: "auto"}} className="container">
+            <div style={{width: "70%", margin: "auto"}} className="container">
                 {redirect}
-                {this.notification}
                 <h1 style={{margin: "20px auto", color: "#3273dc"}} className="title is-1">Sign up</h1>
+                {this.notification}
                 {errorPopup}
                 <form onSubmit={this.authentication}>
                     <div className="field">

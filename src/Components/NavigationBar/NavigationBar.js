@@ -10,13 +10,13 @@ const navigationBar = (props) => {
     };
 
     return (
-        <nav className="navbar is-link">
+        <nav className="navbar is-link is-fixed-top">
             <div className="navbar-brand">
-                <Link to="/" className="navbar-item">
+                <Link to={"/"} className="navbar-item">
                     <p className="title" style={{color: "white"}}>YUShop</p>
                 </Link>
 
-                <Link to={""} onClick={onNavClickHandler} role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+                <Link onClick={onNavClickHandler} role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true" />
                     <span aria-hidden="true" />
                     <span aria-hidden="true" />

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import './App.css';
 import Login from './Components/Login/Login';
 import Home from './Container/Home/Home';
@@ -26,8 +26,7 @@ class App extends Component {
                 <Route path={"/signup"} component={Signup} />
                 <Route path={"/logout"} component={Logout} />
                 <Route path={"/checkout"} component={Checkout} />
-                <Route exact path={"/"} component={Home} />
-                <Redirect to={"/"} />
+                <Route path={"/"} component={Home} />
             </Switch>
         </div>
     );

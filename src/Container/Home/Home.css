@@ -1,0 +1,23 @@
+.Success-notification {
+    background-color: rgb(196, 250, 215);
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    width: 40%;
+    border-radius: 10px;
+    color: darkgreen;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.Fail-notification {
+    background-color: rgb(250, 196, 196);
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    width: 40%;
+    border-radius: 10px;
+    color: #b40000;
+    padding: 10px;
+    margin: 10px auto;
+}

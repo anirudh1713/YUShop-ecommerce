@@ -84,8 +84,8 @@ class contactus extends Component {
                 <NavigationBar token={this.props.token} />
                 <div className="section">
                     <div className="container" style={{width: "70%"}}>
-                        {this.notification}
                         <h1 className="title is-1" style={{color: "#3273dc", fontWeight: "700"}}>Contact Us</h1>
+                        {this.notification}
                         <form onSubmit={this.onFormSubmit}>
                             <div className="field">
                                 <label className="label">Name</label>
@@ -133,7 +133,7 @@ class contactus extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        token: state.auth.token
+        token: state.auth.idToken
     }
 };
 export default connect(mapStateToProps)(contactus);

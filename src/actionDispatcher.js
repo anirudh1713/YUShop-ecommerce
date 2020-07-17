@@ -15,6 +15,7 @@ export const onAddToCart = (id, price, itemName, details, imgSource, token, user
                     console.log("error in add to cart==> ",err);
                 });
             }).catch(err => {
+                dispatch({type:actionTypes.ADD_TO_CART_FAIL})
                 console.log("errr=>>>", err);
             })
     };

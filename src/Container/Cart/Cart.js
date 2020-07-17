@@ -3,12 +3,17 @@ import {connect} from "react-redux";
 import NavigationBar from '../../Components/NavigationBar/NavigationBar';
 import {Link, Redirect} from "react-router-dom";
 import * as actions from '../../actionDispatcher';
+import * as actionTypes from '../../Store/actions';
 
 class Cart extends Component {
 
     componentDidMount() {
         this.props.onFetchCart(this.props.token, this.props.userId);
     }
+
+    onCheckoutHandler = () => {
+        this.props.onCheckoutFromCart();
+    };
 
     render() {
         let cartToShow = (
@@ -70,7 +75,7 @@ class Cart extends Component {
                                 </div>
                                 <div style={{marginLeft: "20%"}} className="media-content">
                                     <p className="title is-3" style={{fontWeight: "700", display: "inline", margin: "0 15px"}}> Total Price : <span style={{color:"#3273dc"}}>${totalAmount}</span></p>
-                                    <Link to={"/checkout"} className="button is-link">CHECKOUT</Link>
+                                    <Link onClick={this.onCheckoutHandler} to={"/checkout"} className="button is-link">CHECKOUT</Link>
                                 </div>
                                 <div className="media-right">
                                 </div>
@@ -96,7 +101,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return{
         onRemoveFromCart: (id, token) => dispatch(actions.onRemoveFromCart(id, token)),
-        onFetchCart: (token, userId) => dispatch(actions.fetchCart(token, userId))
+        onFetchCart: (token, userId) => dispatch(actions.fetchCart(token, userId)),
+        onCheckoutFromCart: () => dispatch({type: actionTypes.CHECKOUT_FROM_CART})
     };
 };
 
